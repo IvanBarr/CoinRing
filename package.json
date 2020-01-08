@@ -1,0 +1,23 @@
+{
+  "name": "coinring",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel watch src/index.html",
+    "server": "browser-sync dist",
+    "build": "parcel build src/index.html --out-dir build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.7.1",
+    "parcel-bundler": "^1.12.4",
+    "postcss-modules": "^1.4.1",
+    "sass": "^1.23.3"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
+}
