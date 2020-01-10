@@ -1,5 +1,4 @@
-import { buildBubbles } from './Bubbles'
-import { updateBubbles } from './Bubbles'
+import { Cards } from './Cards'
 require('dotenv').config()
 
 export const Api = {
@@ -24,7 +23,7 @@ export const Api = {
             fetch(this.url)
             .then(res => res.json())
             .then(data => {
-                updateBubbles(data)
+                // updateBubbles(data)
             })
             .catch(err => {
                 console.log("Failed to refesh")

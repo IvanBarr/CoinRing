@@ -1,20 +1,4 @@
-.bubble{
-    width: 500px;
-    height: 500px;
-    border-radius: 100%;
-    background-color: lightgreen;
-    transition: all ease-in-out 1s;
-    p{
-        text-align: center;
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 20px;
-    }
-}
-p{
-    font-size: 14px;
-}
-p + p{
-    font-size: 13px;
-}
+@import "base/_variables";
+@import "base/_global";
+@import "modules/_wrapper";
+@import "modules/_header";
