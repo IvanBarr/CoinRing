@@ -20,11 +20,22 @@
   </header>
 
   <div class="market-status">
-    <div class="wrapper">
-      <div class="market-status__marketcap"></div>
-      <div class="market-status__volume"></div>
-      <div class="market-status__dominance"></div>
-    </div>
+      <div class="market-status__data ">
+        <h4 class="market-status__title">Market Cap</h4>
+        <p class="market-status__marketcap"></p>
+        <p class="market-status__marketcap--change">24hr: <span class="market-status__prc"></span></p>
+      </div>
+      <div class="market-status__data market-status__data--border">
+        <h4 class="market-status__title">Volume</h4>
+        <p class="market-status__volume"></p>
+        <p class="market-status__volume--change">24hr: <span class="market-satus__prc"></span></p>
+      </div>
+      <div class="market-status__data">
+        <h4 class="market-status__title">Market Dominance</h4>
+        <ol class="market-status__dominance">
+          <li>Test</li>
+        </ol>
+      </div>
   </div>
 
   <script src="./scripts/index.js"></script>

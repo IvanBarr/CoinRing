@@ -1,0 +1,40 @@
+.market-status{
+    background-color: $dark;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    color: $white;
+    display: flex;
+    
+    &__data{
+        width: 33.333%;
+        padding: 0 15px;
+        &--border{
+            border-left: 2px solid $main;
+            border-right: 2px solid $main;
+        }
+    }
+
+    &__title{
+        color: $gray;
+        font-size: 12px;
+        padding-bottom: 5px;
+    }
+
+    &__marketcap, &__volume{
+        font-size: 13px;
+        line-height: 4px;
+
+        &--change{
+            color: $gray;
+            font-size: 13px;
+        }
+    }
+
+    &__dominance{
+        li{
+            font-size: 13px;
+        }
+    }
+
+}
