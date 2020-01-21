@@ -8,7 +8,7 @@
     
     &__data{
         width: 33.333%;
-        padding: 0 15px;
+        padding: 0 6px;
         &--border{
             border-left: 2px solid $main;
             border-right: 2px solid $main;
@@ -22,19 +22,22 @@
     }
 
     &__marketcap, &__volume{
-        font-size: 13px;
-        line-height: 4px;
+        font-size: 11px;
 
         &--change{
-            color: $gray;
-            font-size: 13px;
+            font-size: 12px;
         }
     }
 
     &__dominance{
+        padding-left: 15px;
         li{
-            font-size: 13px;
+            font-size: 12px;
         }
+    }
+
+    .marketcap-change__ptc, .volume-change__ptc{
+        margin-left: 5px;
     }
 
 }
