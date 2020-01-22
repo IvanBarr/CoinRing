@@ -79,7 +79,7 @@ class MarketStatus{
 
     setMarketCap(data){
         let lastItemInArray = data.length - 1
-        let totalMarketcap = data[lastItemInArray].market_cap
+        let totalMarketcap = parseInt(data[lastItemInArray].market_cap)
         this.marketcap.innerHTML = `$ ${this.formatNumber(totalMarketcap)}`
         this.totalMarketCap = totalMarketcap
 
@@ -103,7 +103,7 @@ class MarketStatus{
         let change = this.calculateChange(data[lastItemInArray].volume, data[0].volume)
         this.volumeChangeEl.innerHTML = change
         this.setChangeColor(change, this.volumeChangeEl)
-        console.log('Data length is ' + lastItemInArray)
+        // console.log('Data length is ' + lastItemInArray)
     }
 
     setDominance(data){
@@ -123,6 +123,7 @@ class MarketStatus{
             li.appendChild(textNode)
             ol.appendChild(li)
         }
+        console.log(this.totalMarketCap + ' is a ' + typeof this.totalMarketCap)
     }
 
 }
