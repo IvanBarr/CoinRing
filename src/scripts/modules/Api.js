@@ -12,7 +12,6 @@ export const Api = {
             // buildBubbles(data)
             // updateBubbles(data)
             // this.refresh()
-            console.log(data[2].symbol)
         })
         .catch(err => {
             console.error(err)
