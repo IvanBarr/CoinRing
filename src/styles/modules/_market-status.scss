@@ -1,38 +1,105 @@
 .market-status{
     background-color: $dark;
     width: 100%;
-    position: absolute;
     left: 0;
     color: $white;
     display: flex;
-    
+    padding: 10px 0;
+    .wrapper{
+        width: 98%;
+        @include atMedium{
+            width: 90%;
+        }
+    }
     &__data{
         width: 33.333%;
-        padding: 0 6px;
+        text-align: center;
+        font-size: 11px;
+        float: left;
+        position: relative;
+        @include atSmall{
+            padding: 0 8px;
+        }
+        @include atMedium{
+            text-align: left;
+            padding-left: 100px;
+            font-size: 12px;
+        }
+        @include atLarge{
+            font-size: 14px;
+        }
+        .fas{
+            display: none;
+            @include atMedium{
+                display: block;
+                font-size: 70px;
+                position: absolute;
+                left: 0;
+                color: $main;
+            }
+        }
         &--border{
-            border-left: 2px solid $main;
-            border-right: 2px solid $main;
+            &:after{
+                content: '';
+                background-color: $main;
+                height: 152%;
+                width: 2px;
+                position: absolute;
+                top: -9.8px;
+                left: 0;
+            }
+            &:before{
+                content: '';
+                background-color: $main;
+                height: 152%;
+                width: 2px;
+                position: absolute;
+                top: -9.8px;
+                right: 0;
+            }
+            &:before, &:after{
+                @include atMedium{
+                    display: none;
+                }
+            }
         }
     }
 
     &__title{
         color: $gray;
-        font-size: 12px;
-        padding-bottom: 5px;
+        margin-top: 0;
+        margin-bottom: 10px;
+        .colon{
+            display: none;
+        }
     }
 
     &__marketcap, &__volume{
-        font-size: 11px;
-
+        margin: 0;
+        @include atMedium{
+            display: inline-block;
+        }
         &--change{
-            font-size: 12px;
+            margin-top: 5px;
+            margin-bottom: 0;
         }
     }
 
     &__dominance{
-        padding-left: 15px;
+        padding-left: 0;
+        width: 80px;
+        margin: 0 auto;
+
+        @include atMedium{
+            width: auto;
+            font-size: 13px;
+        }
         li{
-            font-size: 12px;
+            text-align: left;
+            list-style: none;
+            .coin-symbol{
+                padding-right: 5px;
+            }
         }
     }
 

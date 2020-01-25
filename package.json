@@ -15,7 +15,7 @@
     "autoprefixer": "^9.7.1",
     "parcel-bundler": "^1.12.4",
     "postcss-modules": "^1.4.1",
-    "sass": "^1.23.3"
+    "sass": "^1.25.0"
   },
   "dependencies": {
     "dotenv": "^8.2.0"

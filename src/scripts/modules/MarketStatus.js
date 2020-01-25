@@ -103,7 +103,6 @@ class MarketStatus{
         let change = this.calculateChange(data[lastItemInArray].volume, data[0].volume)
         this.volumeChangeEl.innerHTML = change
         this.setChangeColor(change, this.volumeChangeEl)
-        // console.log('Data length is ' + lastItemInArray)
     }
 
     setDominance(data){
@@ -119,11 +118,15 @@ class MarketStatus{
             }
 
             let li = document.createElement('li')
-            let textNode = document.createTextNode(topThree[i].coinSymbol + '\xa0\xa0\xa0\xa0' + topThree[i].dominance)
-            li.appendChild(textNode)
+            let spanEl = document.createElement('span')
+            spanEl.classList =  'coin-symbol'
+            let coinSymbolTextNode = document.createTextNode(i+1 + '.' + ' ' + topThree[i].coinSymbol)
+            let dominanceTextNode = document.createTextNode(topThree[i].dominance)
+            spanEl.appendChild(coinSymbolTextNode)
+            li.appendChild(spanEl)
+            li.appendChild(dominanceTextNode)
             ol.appendChild(li)
         }
-        console.log(this.totalMarketCap + ' is a ' + typeof this.totalMarketCap)
     }
 
 }

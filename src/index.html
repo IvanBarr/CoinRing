@@ -7,6 +7,8 @@
 
   <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <!-- ICONS -->
+  <script src="https://kit.fontawesome.com/86f82797f5.js" crossorigin="anonymous"></script>
 
   <title>CoinRing</title>
 </head>
@@ -20,20 +22,25 @@
   </header>
 
   <div class="market-status">
+    <div class="wrapper">
       <div class="market-status__data ">
+        <i class="fas fa-coins"></i>
         <h4 class="market-status__title">Market Cap</h4>
         <p class="market-status__marketcap"></p>
         <p class="market-status__marketcap--change">Past 24h: <span class="marketcap-change__ptc"></span></p>
       </div>
       <div class="market-status__data market-status__data--border">
+        <i class="fas fa-poll"></i>
         <h4 class="market-status__title">24 Volume</h4>
         <p class="market-status__volume"></p>
         <p class="market-status__volume--change">Past 24h: <span class="volume-change__ptc"></span></p>
       </div>
       <div class="market-status__data">
+        <i class="fas fa-trophy"></i>
         <h4 class="market-status__title">Market Dominance</h4>
         <ol class="market-status__dominance"></ol>
       </div>
+    </div>
   </div>
 
   <script src="./scripts/index.js"></script>
