@@ -1,0 +1,44 @@
+.cards{
+    &__titles{
+        margin-top: 15px;
+        background: $dark;
+        color: $gray;
+        padding: 10px 0;
+        opacity: .5;
+        .wrapper{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__wrapper{
+        .cards__item{
+            background: $lightBlue;
+            margin: 5px 0;
+            padding: 7px;
+            display: flex;
+            justify-content: space-between;
+            .item__symbol-price{
+                b{
+                    display: block;
+                }
+                .symbol-price__symbol{
+                    color: $white;
+                    padding-bottom: 5px;
+                }
+                .symbol-price__price{
+                    color: $lightGray;
+                }
+            }
+            .price-change{
+                background: rgba($color: red, $alpha: .3);
+                p{
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+}
