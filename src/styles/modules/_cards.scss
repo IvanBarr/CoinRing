@@ -6,20 +6,33 @@
         padding: 10px 0;
         opacity: .5;
         .wrapper{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            // display: flex;
+            // flex-direction: row;
+            // justify-content: space-between;
+            display: grid;
+            grid-template-columns: 26% 14.8% 14.8% 14.8% 14.8% 14.8%;
+            justify-items: center;
+        }
+        .title__coin-value{
+            justify-self: start;
         }
     }
 
-    &__wrapper{
+    &__container{
+        .wrapper{
+            display: grid;
+            grid-template-columns: 26% 14.8% 14.8% 14.8% 14.8% 14.8%;
+        }
         .cards__item{
             background: $lightBlue;
             margin: 5px 0;
-            padding: 7px;
-            display: flex;
-            justify-content: space-between;
+            padding: 7px 0;
+            color: $white;
+            // display: flex;
+            // justify-content: space-between;
             .item__symbol-price{
+                justify-self: start;
+                font-size: 14px;
                 b{
                     display: block;
                 }
@@ -32,8 +45,19 @@
                 }
             }
             .price-change{
-                background: rgba($color: red, $alpha: .3);
+                width: 100%;
                 p{
+                    text-align: center;
+                    font-size: 13px;
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+            .market-cap, .volume{
+                p{
+                    text-align: center;
+                    font-size: 13px;
                     position: relative;
                     top: 50%;
                     transform: translateY(-50%);
