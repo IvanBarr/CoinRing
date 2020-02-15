@@ -13,18 +13,36 @@ class Cards{
     }
 
     abbreviateNumber(value){
-        let newValue = value;
-        const suffixes = ["", "K", "M", "B","T"];
+        let newValue = parseInt(value)
+        const suffixes = ["", "K", "M", "B","T"]
         let suffixNum = 0;
         while (newValue >= 1000) {
-            newValue /= 1000;
+            newValue /= 1000
             suffixNum++;
         }
 
-        newValue = newValue.toPrecision(3);
+        newValue = newValue.toPrecision(3)
 
-        newValue += suffixes[suffixNum];
-        return newValue;
+        newValue += suffixes[suffixNum]
+        return newValue
+    }
+
+    setPriceChangeBgColor(){
+        let priceChangeBoxes = document.getElementsByClassName("price-change")
+        for(let i = 0; i < priceChangeBoxes.length; i++){
+            let changeInt = parseFloat(priceChangeBoxes[i].innerText)
+            if (Math.sign(changeInt) === 1){
+                priceChangeBoxes[i].style.backgroundColor = '#0D1F24'
+                priceChangeBoxes[i].style.color = "green"
+            }else if (Math.sign(changeInt) === -1){
+                priceChangeBoxes[i].style.backgroundColor = '#1B0B19'
+                priceChangeBoxes[i].style.color = "red"
+            }else{
+                priceChangeBoxes[i].style.backgroundColor = ''
+                priceChangeBoxes[i].style.color = ""
+            }
+        }
+        // console.log(priceChangeBoxes[1].innerText)
     }
 
     makeCard(){
@@ -37,7 +55,7 @@ class Cards{
                         <div class="cards__item">
                             <div class="wrapper">
                                 <div class="item__symbol-price">
-                                    <b class="symbol-price__symbol">${data[i].symbol}</b>
+                                    <b class="symbol-price__symbol">${i+1 + '. ' + data[i].symbol}</b>
                                     <b class="symbol-price__price">${this.formatNumber(parseFloat(data[i].price).toFixed(3))}</b>
                                 </div>
                                 <div class="price-change">
@@ -85,7 +103,8 @@ class Cards{
                     `
                     this.cards_container.insertAdjacentHTML("beforeend", markup)
                 }
-                console.log(data[0])
+                this.setPriceChangeBgColor()
+                // console.log(data[2])
             })
             .catch(err => {
                 console.error(err)

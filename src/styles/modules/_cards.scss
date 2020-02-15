@@ -6,9 +6,6 @@
         padding: 10px 0;
         opacity: .5;
         .wrapper{
-            // display: flex;
-            // flex-direction: row;
-            // justify-content: space-between;
             display: grid;
             grid-template-columns: 26% 14.8% 14.8% 14.8% 14.8% 14.8%;
             justify-items: center;
@@ -26,18 +23,16 @@
         .cards__item{
             background: $lightBlue;
             margin: 5px 0;
-            padding: 7px 0;
             color: $white;
-            // display: flex;
-            // justify-content: space-between;
             .item__symbol-price{
                 justify-self: start;
                 font-size: 14px;
+                padding: 7px 0;
                 b{
                     display: block;
                 }
                 .symbol-price__symbol{
-                    color: $white;
+                    color: #0085b8;
                     padding-bottom: 5px;
                 }
                 .symbol-price__price{
@@ -45,10 +40,10 @@
                 }
             }
             .price-change{
-                width: 100%;
+                margin: 0 2px;
                 p{
                     text-align: center;
-                    font-size: 13px;
+                    font-size: 11px;
                     position: relative;
                     top: 50%;
                     transform: translateY(-50%);
@@ -57,7 +52,7 @@
             .market-cap, .volume{
                 p{
                     text-align: center;
-                    font-size: 13px;
+                    font-size: 11px;
                     position: relative;
                     top: 50%;
                     transform: translateY(-50%);
