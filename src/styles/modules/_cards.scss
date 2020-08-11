@@ -16,48 +16,86 @@
     }
 
     &__container{
+        @include atMedium{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-around;
+        }
         .wrapper{
             display: grid;
             grid-template-columns: 26% 14.8% 14.8% 14.8% 14.8% 14.8%;
+            @include atMedium{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
         }
         .cards__item{
             background: $lightBlue;
             margin: 5px 0;
             color: $white;
+            @include atMedium{
+                width: 30%;
+            }
             .item__symbol-price{
                 justify-self: start;
                 font-size: 14px;
                 padding: 7px 0;
-                b{
-                    display: block;
-                }
                 .symbol-price__symbol{
                     color: #0085b8;
                     padding-bottom: 5px;
+                    display: block;
                 }
                 .symbol-price__price{
                     color: $lightGray;
                 }
+                @include atMedium{
+                    .symbol-price__symbol{
+                        font-size: 25px;
+                    }
+                    .symbol-price__price{
+                        font-size: 18px;
+                    }
+                    .symbol-price__symbol, .symbol-price__price{
+                        display: block;
+                        text-align: center;
+                    }
+                }
             }
             .price-change{
                 margin: 0 2px;
+                @include atMedium{
+                    margin: 0;
+                }
+            }
+            .price-change, .market-cap, .volume{
+                .price-change-timeframe{
+                    display: none;
+                }
                 p{
                     text-align: center;
                     font-size: 11px;
                     position: relative;
                     top: 50%;
                     transform: translateY(-50%);
+                    @include atMedium{
+                        transform: translateY(0%);
+                        text-align: right;
+                        font-size: 15px;
+                        display: inline-block;
+                        float: right;
+                    }
+                }
+                @include atMedium{
+                    padding: 5px;
+                    .price-change-timeframe{
+                        display: inline-block;
+                        color: gray;
+                    }
                 }
             }
-            .market-cap, .volume{
-                p{
-                    text-align: center;
-                    font-size: 11px;
-                    position: relative;
-                    top: 50%;
-                    transform: translateY(-50%);
-                }
-            }
+
         }
     }
 }

@@ -56,9 +56,10 @@ class Cards{
                             <div class="wrapper">
                                 <div class="item__symbol-price">
                                     <b class="symbol-price__symbol">${i+1 + '. ' + data[i].symbol}</b>
-                                    <b class="symbol-price__price">${this.formatNumber(parseFloat(data[i].price).toFixed(3))}</b>
+                                    <b class="symbol-price__price">$${this.formatNumber(parseFloat(data[i].price).toFixed(3))}</b>
                                 </div>
                                 <div class="price-change">
+                                    <b class="price-change-timeframe">1hr</b>
                                     <p>
                                         ${
                                             // If data for last 24hrs available then show pct change, if not, show "N/A"
@@ -67,6 +68,7 @@ class Cards{
                                     </p>
                                 </div>
                                 <div class="price-change">
+                                    <b class="price-change-timeframe">24hr</b>
                                     <p>
                                         ${
                                             // If data for last 7 days available then show pct change, if not, show "N/A"
@@ -75,6 +77,7 @@ class Cards{
                                     </p>
                                 </div>
                                 <div class="price-change">
+                                    <b class="price-change-timeframe">Year To Date</b>
                                     <p>
                                         ${
                                             // If data for Year To Date available then show pct change, if not, show "N/A"
@@ -83,6 +86,7 @@ class Cards{
                                     </p>
                                 </div>
                                 <div class="market-cap">
+                                    <b class="price-change-timeframe">Marketcap</b>
                                     <p>
                                         ${
                                             // If data for last 7 days available then show pct change, if not, show "N/A"
@@ -91,6 +95,7 @@ class Cards{
                                     </p>
                                 </div>
                                 <div class="volume">
+                                    <b class="price-change-timeframe">Volume</b>
                                     <p>
                                         ${
                                             // If data for last 7 days available then show pct change, if not, show "N/A"

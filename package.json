@@ -12,10 +12,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^9.7.1",
+    "autoprefixer": "^9.8.6",
     "parcel-bundler": "^1.12.4",
-    "postcss-modules": "^1.4.1",
-    "sass": "^1.25.0"
+    "postcss-modules": "^1.5.0",
+    "sass": "^1.26.10"
   },
   "dependencies": {
     "dotenv": "^8.2.0"
