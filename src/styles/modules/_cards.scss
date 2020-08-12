@@ -1,4 +1,7 @@
 .cards{
+    @include atMedium{
+        margin-top: 30px;
+    }
     &__titles{
         margin-top: 15px;
         background: $dark;
@@ -12,6 +15,9 @@
         }
         .title__coin-value{
             justify-self: start;
+        }
+        @include atMedium{
+            display: none;
         }
     }
 
@@ -37,6 +43,12 @@
             color: $white;
             @include atMedium{
                 width: 30%;
+                border: 5.5px solid $darkpurple;
+                border-radius: 15px;
+                padding: 15px 0;
+            }
+            @include atLarge{
+                width: 18%;
             }
             .item__symbol-price{
                 justify-self: start;
@@ -69,6 +81,9 @@
                     margin: 0;
                 }
             }
+            .market-cap, .volume{
+                background-color: $purple2;
+            }
             .price-change, .market-cap, .volume{
                 .price-change-timeframe{
                     display: none;
@@ -88,10 +103,11 @@
                     }
                 }
                 @include atMedium{
-                    padding: 5px;
+                    padding: 8px 5px;
+                    margin: 1px 0;
                     .price-change-timeframe{
                         display: inline-block;
-                        color: gray;
+                        color: $superLightGray;
                     }
                 }
             }

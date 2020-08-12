@@ -28,21 +28,22 @@ class Cards{
     }
 
     setPriceChangeBgColor(){
-        let priceChangeBoxes = document.getElementsByClassName("price-change")
-        for(let i = 0; i < priceChangeBoxes.length; i++){
-            let changeInt = parseFloat(priceChangeBoxes[i].innerText)
+        let priceChangeContainer = document.getElementsByClassName("price-change")
+        let priceChangePct = document.getElementsByClassName("price-change-pct")
+        for(let i = 0; i < priceChangeContainer.length; i++){
+            let changeInt = parseFloat(priceChangePct[i].innerText)
             if (Math.sign(changeInt) === 1){
-                priceChangeBoxes[i].style.backgroundColor = '#0D1F24'
-                priceChangeBoxes[i].style.color = "green"
+                priceChangeContainer[i].style.backgroundColor = '#0D1F24'
+                priceChangePct[i].style.color = "green"
             }else if (Math.sign(changeInt) === -1){
-                priceChangeBoxes[i].style.backgroundColor = '#1B0B19'
-                priceChangeBoxes[i].style.color = "red"
+                priceChangeContainer[i].style.backgroundColor = '#1B0B19'
+                priceChangePct[i].style.color = "red"
             }else{
-                priceChangeBoxes[i].style.backgroundColor = ''
-                priceChangeBoxes[i].style.color = ""
+                priceChangeContainer[i].style.backgroundColor = ''
+                priceChangePct[i].style.color = ""
             }
         }
-        // console.log(priceChangeBoxes[1].innerText)
+        // console.log(priceChangeContainer[1].innerText)
     }
 
     makeCard(){
@@ -60,7 +61,7 @@ class Cards{
                                 </div>
                                 <div class="price-change">
                                     <b class="price-change-timeframe">1hr</b>
-                                    <p>
+                                    <p class="price-change-pct">
                                         ${
                                             // If data for last 24hrs available then show pct change, if not, show "N/A"
                                             data[i]['1d'] ? (data[i]['1d']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
@@ -69,7 +70,7 @@ class Cards{
                                 </div>
                                 <div class="price-change">
                                     <b class="price-change-timeframe">24hr</b>
-                                    <p>
+                                    <p class="price-change-pct">
                                         ${
                                             // If data for last 7 days available then show pct change, if not, show "N/A"
                                             data[i]['1d'] ? (data[i]['7d']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
@@ -78,7 +79,7 @@ class Cards{
                                 </div>
                                 <div class="price-change">
                                     <b class="price-change-timeframe">Year To Date</b>
-                                    <p>
+                                    <p class="price-change-pct">
                                         ${
                                             // If data for Year To Date available then show pct change, if not, show "N/A"
                                             data[i]['ytd'] ? (data[i]['ytd']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
