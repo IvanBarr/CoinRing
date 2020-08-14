@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel watch src/index.html",
+    "dev": "parcel src/*.html",
     "server": "browser-sync dist",
-    "build": "parcel build src/index.html --out-dir build"
+    "build": "parcel build src/*.html --out-dir build"
   },
   "keywords": [],
   "author": "",

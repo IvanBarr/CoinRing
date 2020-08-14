@@ -6,6 +6,12 @@ class Cards{
         this.cards = document.querySelector('.cards')
         this.cards_container = document.querySelector('.cards__container')
         this.makeCard()
+        this.events()
+    }
+
+    events(){
+        this.cards_container.addEventListener('click', this.addToFavorites)
+       
     }
 
     formatNumber(num){
@@ -51,70 +57,140 @@ class Cards{
             .then(res => res.json())
             .then(data => {
                 this.cards_container.innerHTML = ''
-                for(let i = 0; i < 100; i++){
-                    let markup = `
-                        <div class="cards__item">
-                            <div class="wrapper">
-                                <div class="item__symbol-price">
-                                    <b class="symbol-price__symbol">${i+1 + '. ' + data[i].symbol}</b>
-                                    <b class="symbol-price__price">$${this.formatNumber(parseFloat(data[i].price).toFixed(3))}</b>
-                                </div>
-                                <div class="price-change">
-                                    <b class="price-change-timeframe">1hr</b>
-                                    <p class="price-change-pct">
-                                        ${
-                                            // If data for last 24hrs available then show pct change, if not, show "N/A"
-                                            data[i]['1d'] ? (data[i]['1d']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
-                                        }
-                                    </p>
-                                </div>
-                                <div class="price-change">
-                                    <b class="price-change-timeframe">24hr</b>
-                                    <p class="price-change-pct">
-                                        ${
-                                            // If data for last 7 days available then show pct change, if not, show "N/A"
-                                            data[i]['1d'] ? (data[i]['7d']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
-                                        }
-                                    </p>
-                                </div>
-                                <div class="price-change">
-                                    <b class="price-change-timeframe">Year To Date</b>
-                                    <p class="price-change-pct">
-                                        ${
-                                            // If data for Year To Date available then show pct change, if not, show "N/A"
-                                            data[i]['ytd'] ? (data[i]['ytd']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
-                                        }
-                                    </p>
-                                </div>
-                                <div class="market-cap">
-                                    <b class="price-change-timeframe">Marketcap</b>
-                                    <p>
-                                        ${
-                                            // If data for last 7 days available then show pct change, if not, show "N/A"
-                                            data[i].market_cap ? this.abbreviateNumber(data[i].market_cap) : 'N/A'
-                                        }
-                                    </p>
-                                </div>
-                                <div class="volume">
-                                    <b class="price-change-timeframe">Volume</b>
-                                    <p>
-                                        ${
-                                            // If data for last 7 days available then show pct change, if not, show "N/A"
-                                            data[i]['1d'] ? this.abbreviateNumber(data[i]['1d']['volume']) : 'N/A'
-                                        }
-                                    </p>
+                if(!location.href.includes("favorites.html")){
+                    for(let i = 0; i < 100; i++){
+                        let markup = `
+                            <div class="cards__item">
+                                <div class="wrapper">
+                                    <div class="item__symbol-price">
+                                        <b class="symbol-price__symbol">${i+1 + '. ' + data[i].symbol}</b>
+                                        <b class="symbol-price__price">$${this.formatNumber(parseFloat(data[i].price).toFixed(3))}</b>
+                                    </div>
+                                    <div class="price-change">
+                                        <b class="price-change-timeframe">1hr</b>
+                                        <p class="price-change-pct">
+                                            ${
+                                                // If data for last 24hrs available then show pct change, if not, show "N/A"
+                                                data[i]['1d'] ? (data[i]['1d']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
+                                            }
+                                        </p>
+                                    </div>
+                                    <div class="price-change">
+                                        <b class="price-change-timeframe">24hr</b>
+                                        <p class="price-change-pct">
+                                            ${
+                                                // If data for last 7 days available then show pct change, if not, show "N/A"
+                                                data[i]['1d'] ? (data[i]['7d']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
+                                            }
+                                        </p>
+                                    </div>
+                                    <div class="price-change">
+                                        <b class="price-change-timeframe">Year To Date</b>
+                                        <p class="price-change-pct">
+                                            ${
+                                                // If data for Year To Date available then show pct change, if not, show "N/A"
+                                                data[i]['ytd'] ? (data[i]['ytd']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
+                                            }
+                                        </p>
+                                    </div>
+                                    <div class="market-cap">
+                                        <b class="price-change-timeframe">Marketcap</b>
+                                        <p>
+                                            ${
+                                                // If data for last 7 days available then show pct change, if not, show "N/A"
+                                                data[i].market_cap ? this.abbreviateNumber(data[i].market_cap) : 'N/A'
+                                            }
+                                        </p>
+                                    </div>
+                                    <div class="volume">
+                                        <b class="price-change-timeframe">Volume</b>
+                                        <p>
+                                            ${
+                                                // If data for last 7 days available then show pct change, if not, show "N/A"
+                                                data[i]['1d'] ? this.abbreviateNumber(data[i]['1d']['volume']) : 'N/A'
+                                            }
+                                        </p>
+                                    </div>
+                                    <i class="add-favorite_btn far fa-star"></i>
                                 </div>
                             </div>
-                        </div>
-                    `
-                    this.cards_container.insertAdjacentHTML("beforeend", markup)
+                        `
+                        this.cards_container.insertAdjacentHTML("beforeend", markup)
+                    }
+                }else{
+                    for(let i = 0; i < 2; i++){
+                        let markup = `
+                            <div class="cards__item">
+                                <div class="wrapper">
+                                    <div class="item__symbol-price">
+                                        <b class="symbol-price__symbol">${i+1 + '. ' + data[i].symbol}</b>
+                                        <b class="symbol-price__price">$${this.formatNumber(parseFloat(data[i].price).toFixed(3))}</b>
+                                    </div>
+                                    <div class="price-change">
+                                        <b class="price-change-timeframe">1hr</b>
+                                        <p class="price-change-pct">
+                                            ${
+                                                // If data for last 24hrs available then show pct change, if not, show "N/A"
+                                                data[i]['1d'] ? (data[i]['1d']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
+                                            }
+                                        </p>
+                                    </div>
+                                    <div class="price-change">
+                                        <b class="price-change-timeframe">24hr</b>
+                                        <p class="price-change-pct">
+                                            ${
+                                                // If data for last 7 days available then show pct change, if not, show "N/A"
+                                                data[i]['1d'] ? (data[i]['7d']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
+                                            }
+                                        </p>
+                                    </div>
+                                    <div class="price-change">
+                                        <b class="price-change-timeframe">Year To Date</b>
+                                        <p class="price-change-pct">
+                                            ${
+                                                // If data for Year To Date available then show pct change, if not, show "N/A"
+                                                data[i]['ytd'] ? (data[i]['ytd']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
+                                            }
+                                        </p>
+                                    </div>
+                                    <div class="market-cap">
+                                        <b class="price-change-timeframe">Marketcap</b>
+                                        <p>
+                                            ${
+                                                // If data for last 7 days available then show pct change, if not, show "N/A"
+                                                data[i].market_cap ? this.abbreviateNumber(data[i].market_cap) : 'N/A'
+                                            }
+                                        </p>
+                                    </div>
+                                    <div class="volume">
+                                        <b class="price-change-timeframe">Volume</b>
+                                        <p>
+                                            ${
+                                                // If data for last 7 days available then show pct change, if not, show "N/A"
+                                                data[i]['1d'] ? this.abbreviateNumber(data[i]['1d']['volume']) : 'N/A'
+                                            }
+                                        </p>
+                                    </div>
+                                    <i class="add-favorite_btn far fa-star"></i>
+                                </div>
+                            </div>
+                        `
+                        this.cards_container.insertAdjacentHTML("beforeend", markup)
+                    }
                 }
                 this.setPriceChangeBgColor()
-                // console.log(data[2])
+                // let cardItem = document.querySelector('.add-favorite_btn')
+                // addToFavoriteBtn.addEventListener('click', () => {console.log('hi')})
             })
             .catch(err => {
                 console.error(err)
             })
+    }
+    
+    addToFavorites(e){
+        let target = e.target
+        if (target.className != "add-favorite_btn far fa-star") return
+        console.log(target.parentNode.childNodes[1].childNodes[1].innerText.replace(/[\d.]/g, ''))
     }
 }
 
