@@ -1,5 +1,6 @@
 import MarketStatus from './MarketStatus'
 import Cards from './Cards'
+import Favorites from './Favorites'
 // require('dotenv').config()
 
 class Api{
@@ -9,7 +10,9 @@ class Api{
         // this.callApi(this.url)
         new MarketStatus()
         new Cards()
-        this.refresh()
+        new Favorites()
+        setTimeout(this.refresh(), 10000)
+        // this.refresh()
     }
 
     // callApi(url){
