@@ -31,8 +31,18 @@
         .wrapper{
             display: grid;
             grid-template-columns: 26% 14.8% 14.8% 14.8% 14.8% 14.8%;
+            position: relative;
             .add-favorite_btn{
-                display: none;
+                // display: none;
+                display: block;
+                color: yellow;
+                cursor: pointer;
+                align-self: flex-end;
+                padding: 5px;
+                // margin-top: 8px;
+                position: absolute;
+                left: 17%;
+                top: 2px;
             }
             @include atMedium{
                 display: flex;
@@ -45,6 +55,7 @@
                   align-self: flex-end;
                   padding: 5px;
                   margin-top: 8px;
+                  position: static;
                 }
             }
         }

@@ -1,0 +1,9 @@
+.favorites_msg{
+    color: white;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 20px;
+    @include atSmall{
+        font-size: 25px;
+    }
+}
