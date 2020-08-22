@@ -70,7 +70,6 @@
                 width: 30%;
                 border: 5.5px solid $darkpurple;
                 border-radius: 15px;
-                // padding: 15px 0;
             }
             @include atLarge{
                 width: 18%;
@@ -107,7 +106,7 @@
                 }
             }
             .price-change{
-                margin: 0 2px;
+                margin: 0 1px;
                 @include atMedium{
                     margin: 0;
                 }
@@ -115,8 +114,8 @@
             .market-cap, .volume{
                 background-color: $purple2;
                 &:nth-child(5){
-                    margin-right: 4px;
-                    margin-left: 2px;
+                    margin-right: 2px;
+                    margin-left: 1px;
                 }
                 @include atMedium{
                     &:nth-child(5){

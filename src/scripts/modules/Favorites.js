@@ -31,7 +31,7 @@ class Favorites{
                         }
                         this.favorites.push(newObj)
                         localStorage.setItem("coin", JSON.stringify(this.favorites))
-                        console.log(this.favorites)
+                        // console.log(this.favorites)
                     }else{
                         if(this.favorites.length === 1){
                             localStorage.clear()
@@ -42,7 +42,7 @@ class Favorites{
                             let filteredFavorites = this.favorites.filter(item => item.symbol !== itemClicked)
                             this.favorites = filteredFavorites
                             localStorage.setItem("coin", JSON.stringify(this.favorites))
-                            console.log(this.favorites)
+                            // console.log(this.favorites)
                         }
                     }
             }else{ // If localStorage is EMPTY
@@ -53,11 +53,10 @@ class Favorites{
 
                 this.favorites.push(newObj)
                 localStorage.setItem("coin", JSON.stringify(this.favorites))
-                console.log(this.favorites)
+                // console.log(this.favorites)
             }
 
 
-            // console.log(this.favorites)
         }
         new Cards()
     }
