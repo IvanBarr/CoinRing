@@ -3,18 +3,38 @@
     color: $white;
     padding: 20px 0;
     display: inline-block;
+    a{
+        text-decoration: none;
+        &:visited{
+            color: $white;
+        }
+    }
 }
 
 .favorites{
     color: $white;
     float: right;
-    margin: 20px 0;
-    padding: 10px 25px;
+    margin: 20px 2px 0 0;
+    padding: 6px 0;
+    width: 85px;
+    text-align: center;
     border-radius: 5px;
     outline: none;
     border: none;
-    background: linear-gradient($purple, $blue);
+    // background: linear-gradient($purple, $blue);
+    border: 1px solid rgb(248, 248, 122);
     cursor: pointer;
+    text-decoration: none;
+    Font-size: 15px;
+    color: rgb(248, 248, 122);
+    transition: .1s transform ease-in-out;
+    &:hover{
+       transform: scale(1.1);
+       transition: .1s transform ease-in-out;
+       border: 1px solid yellow;
+       color: yellow;
+       
+    }
 }
 
 .attribution{

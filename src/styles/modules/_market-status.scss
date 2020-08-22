@@ -2,7 +2,7 @@
     background-color: $dark;
     width: 100%;
     color: $white;
-    padding: 10px 0;
+    padding: 25px 0;
     .wrapper{
         width: 98%;
         display: flex;
@@ -43,19 +43,19 @@
             &:after{
                 content: '';
                 background-color: $main;
-                height: 152%;
+                height: 180%;
                 width: 2px;
                 position: absolute;
-                top: -9.8px;
+                top: -25px;
                 left: 0;
             }
             &:before{
                 content: '';
                 background-color: $main;
-                height: 152%;
+                height: 180%;
                 width: 2px;
                 position: absolute;
-                top: -9.8px;
+                top: -25px;
                 right: 0;
             }
             &:before, &:after{

@@ -30,32 +30,35 @@
         }
         .wrapper{
             display: grid;
-            grid-template-columns: 26% 14.8% 14.8% 14.8% 14.8% 14.8%;
+            grid-template-columns: 18% 8% 14.8% 14.8% 14.8% 14.8% 14.8%;
             position: relative;
+            width: 100%;
+            padding: 0 0 0 10px;
             .add-favorite_btn{
-                // display: none;
+                margin-top: 1px;
                 display: block;
                 color: yellow;
                 cursor: pointer;
-                align-self: flex-end;
+                align-self: start;
+                justify-self: center;
                 padding: 5px;
-                // margin-top: 8px;
-                position: absolute;
-                left: 17%;
-                top: 2px;
+                grid-column-start: 2;
+                grid-row-start: 1
             }
             @include atMedium{
                 display: flex;
                 flex-direction: column;
                 width: 100%;
+                padding: 0;
                 .add-favorite_btn{
-                  display: block;
                   color: yellow;
                   cursor: pointer;
-                  align-self: flex-end;
                   padding: 5px;
-                  margin-top: 8px;
-                  position: static;
+                  margin: 8px 0;
+                  width: 100%;
+                  border-bottom-right-radius: 10px;
+                  border-bottom-left-radius: 10px;
+                  text-align: center;
                 }
             }
         }
@@ -67,15 +70,21 @@
                 width: 30%;
                 border: 5.5px solid $darkpurple;
                 border-radius: 15px;
-                padding: 15px 0;
+                // padding: 15px 0;
             }
             @include atLarge{
                 width: 18%;
+            }
+            @include atExtraLarge{
+                width: 15%;
             }
             .item__symbol-price{
                 justify-self: start;
                 font-size: 14px;
                 padding: 7px 0;
+                @include atMedium{
+                    padding: 15px 0 7px 0;
+                }
                 .symbol-price__symbol{
                     color: #0085b8;
                     padding-bottom: 5px;
@@ -105,6 +114,15 @@
             }
             .market-cap, .volume{
                 background-color: $purple2;
+                &:nth-child(5){
+                    margin-right: 4px;
+                    margin-left: 2px;
+                }
+                @include atMedium{
+                    &:nth-child(5){
+                        margin: 1px 0;
+                    }
+                }
             }
             .price-change, .market-cap, .volume{
                 .price-change-timeframe{
