@@ -2,8 +2,9 @@ require('dotenv').config()
 import Favorites from './Favorites'
 
 class Cards{
-    constructor(fav){
+    constructor(){
         this.apiUrl = `https://api.nomics.com/v1/currencies/ticker?key=${process.env.API_KEY}&1d`
+        this.loadingScreen = document.querySelector("#loadingScreen")
         this.cards = document.querySelector('.cards')
         this.cards_container = document.querySelector('.cards__container')
         this.favorites = JSON.parse(localStorage.getItem("coin"))
@@ -66,6 +67,7 @@ class Cards{
         fetch(this.apiUrl)
             .then(res => res.json())
             .then(data => {
+                this.loadingScreen.style.display = "none"
                 let markup
                 this.cards_container.innerHTML = ''
                 if(!location.href.includes("favorites.html")){

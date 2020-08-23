@@ -55,22 +55,19 @@ class Favorites{
                 // console.log(this.favorites)
             }
 
-
-        }
-
-        // Toggle btn style
-        const btnClicked = target.parentNode.childNodes[13]
-        if(btnClicked.classList.contains("fas")){
-            btnClicked.classList.remove("fas")
-            btnClicked.className += " far"
-            if(location.href.includes("favorites.html")){
-                btnClicked.parentNode.parentNode.style.display = "none"
+            // Toggle btn style
+            const btnClicked = target.parentNode.childNodes[13]
+            if(btnClicked.classList.contains("fas")){
+                btnClicked.classList.remove("fas")
+                btnClicked.className += " far"
+                if(location.href.includes("favorites.html")){
+                    btnClicked.parentNode.parentNode.style.display = "none"
+                }
+            }else{
+                btnClicked.classList.remove("far")
+                btnClicked.className += " fas"
             }
-        }else{
-            btnClicked.classList.remove("far")
-            btnClicked.className += " fas"
         }
-
     }
 }
 export default Favorites
