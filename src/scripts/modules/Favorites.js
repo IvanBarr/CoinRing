@@ -17,16 +17,15 @@ class Favorites{
         let target = e.target
         if (target.classList.contains("add-favorite_btn")){
 
-
-            let itemClicked = JSON.stringify(target.parentNode.childNodes[1].childNodes[1].innerText.replace(/[\d.' ']/g, ''))
+            let itemClickedValue = JSON.stringify(target.parentNode.childNodes[1].childNodes[1].innerText.replace(/[\d.' ']/g, ''))
 
             // If localStorage HAS items
             if(localStorage.getItem("coin") != null){
                 this.favorites = JSON.parse(localStorage.getItem("coin"))
                 // If localStorage Doesn't have the item clicked on
-                    if(this.favorites.some(el => el.symbol === itemClicked) === false){
+                    if(this.favorites.some(el => el.symbol === itemClickedValue) === false){
                         let newObj = {
-                            symbol: itemClicked,
+                            symbol: itemClickedValue,
                             favorited: true
                         }
                         this.favorites.push(newObj)
@@ -39,7 +38,7 @@ class Favorites{
      
                         }else{
                              // If localStorage HAS the item clicked on...REMOVE IT
-                            let filteredFavorites = this.favorites.filter(item => item.symbol !== itemClicked)
+                            let filteredFavorites = this.favorites.filter(item => item.symbol !== itemClickedValue)
                             this.favorites = filteredFavorites
                             localStorage.setItem("coin", JSON.stringify(this.favorites))
                             // console.log(this.favorites)
@@ -47,7 +46,7 @@ class Favorites{
                     }
             }else{ // If localStorage is EMPTY
                 let newObj = {
-                    symbol: itemClicked,
+                    symbol: itemClickedValue,
                     favorited: true
                 }
 
@@ -58,7 +57,20 @@ class Favorites{
 
 
         }
-        new Cards()
+
+        // Toggle btn style
+        const btnClicked = target.parentNode.childNodes[13]
+        if(btnClicked.classList.contains("fas")){
+            btnClicked.classList.remove("fas")
+            btnClicked.className += " far"
+            if(location.href.includes("favorites.html")){
+                btnClicked.parentNode.parentNode.style.display = "none"
+            }
+        }else{
+            btnClicked.classList.remove("far")
+            btnClicked.className += " fas"
+        }
+
     }
 }
 export default Favorites
