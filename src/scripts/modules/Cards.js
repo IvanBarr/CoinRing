@@ -134,68 +134,70 @@ class Cards{
                 }else{
                     if(this.favorites){
                         for(let z = 0; z < 100; z++){
-                           for(let x = 0; x < 100; x++){
-                               if(JSON.stringify(data[x].symbol) === this.favorites[z].symbol){
-                                    markup = `
-                                        <div class="cards__item">
-                                            <div class="wrapper">
-                                                <div class="item__symbol-price">
-                                                    <b class="symbol-price__symbol">${x+1 + '. ' + data[x].symbol}</b>
-                                                    <b class="symbol-price__price">$${this.formatNumber(parseFloat(data[x].price).toFixed(3))}</b>
+                            if(z < this.favorites.length){
+                                for(let x = 0; x < 100; x++){
+                                    if(JSON.stringify(data[x].symbol) === this.favorites[z].symbol){
+                                            markup = `
+                                                <div class="cards__item">
+                                                    <div class="wrapper">
+                                                        <div class="item__symbol-price">
+                                                            <b class="symbol-price__symbol">${x+1 + '. ' + data[x].symbol}</b>
+                                                            <b class="symbol-price__price">$${this.formatNumber(parseFloat(data[x].price).toFixed(3))}</b>
+                                                        </div>
+                                                        <div class="price-change">
+                                                            <b class="price-change-timeframe">1hr</b>
+                                                            <p class="price-change-pct">
+                                                                ${
+                                                                    // If data for last 24hrs available then show pct change, if not, show "N/A"
+                                                                    data[x]['1d'] ? (data[x]['1d']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
+                                                                }
+                                                            </p>
+                                                        </div>
+                                                        <div class="price-change">
+                                                            <b class="price-change-timeframe">24hr</b>
+                                                            <p class="price-change-pct">
+                                                                ${
+                                                                    // If data for last 7 days available then show pct change, if not, show "N/A"
+                                                                    data[x]['1d'] ? (data[x]['7d']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
+                                                                }
+                                                            </p>
+                                                        </div>
+                                                        <div class="price-change">
+                                                            <b class="price-change-timeframe">Year To Date</b>
+                                                            <p class="price-change-pct">
+                                                                ${
+                                                                    // If data for Year To Date available then show pct change, if not, show "N/A"
+                                                                    data[x]['ytd'] ? (data[x]['ytd']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
+                                                                }
+                                                            </p>
+                                                        </div>
+                                                        <div class="market-cap">
+                                                            <b class="price-change-timeframe">Marketcap</b>
+                                                            <p>
+                                                                ${
+                                                                    // If data for last 7 days available then show pct change, if not, show "N/A"
+                                                                    data[x].market_cap ? this.abbreviateNumber(data[x].market_cap) : 'N/A'
+                                                                }
+                                                            </p>
+                                                        </div>
+                                                        <div class="volume">
+                                                            <b class="price-change-timeframe">Volume</b>
+                                                            <p>
+                                                                ${
+                                                                    // If data for last 7 days available then show pct change, if not, show "N/A"
+                                                                    data[x]['1d'] ? this.abbreviateNumber(data[x]['1d']['volume']) : 'N/A'
+                                                                }
+                                                            </p>
+                                                        </div>
+                                                        <i class="add-favorite_btn fas fa-star"></i>
+                                                    </div>
                                                 </div>
-                                                <div class="price-change">
-                                                    <b class="price-change-timeframe">1hr</b>
-                                                    <p class="price-change-pct">
-                                                        ${
-                                                            // If data for last 24hrs available then show pct change, if not, show "N/A"
-                                                            data[x]['1d'] ? (data[x]['1d']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
-                                                        }
-                                                    </p>
-                                                </div>
-                                                <div class="price-change">
-                                                    <b class="price-change-timeframe">24hr</b>
-                                                    <p class="price-change-pct">
-                                                        ${
-                                                            // If data for last 7 days available then show pct change, if not, show "N/A"
-                                                            data[x]['1d'] ? (data[x]['7d']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
-                                                        }
-                                                    </p>
-                                                </div>
-                                                <div class="price-change">
-                                                    <b class="price-change-timeframe">Year To Date</b>
-                                                    <p class="price-change-pct">
-                                                        ${
-                                                            // If data for Year To Date available then show pct change, if not, show "N/A"
-                                                            data[x]['ytd'] ? (data[x]['ytd']['price_change_pct'] * 100).toFixed(2) + '%' : 'N/A'
-                                                        }
-                                                    </p>
-                                                </div>
-                                                <div class="market-cap">
-                                                    <b class="price-change-timeframe">Marketcap</b>
-                                                    <p>
-                                                        ${
-                                                            // If data for last 7 days available then show pct change, if not, show "N/A"
-                                                            data[x].market_cap ? this.abbreviateNumber(data[x].market_cap) : 'N/A'
-                                                        }
-                                                    </p>
-                                                </div>
-                                                <div class="volume">
-                                                    <b class="price-change-timeframe">Volume</b>
-                                                    <p>
-                                                        ${
-                                                            // If data for last 7 days available then show pct change, if not, show "N/A"
-                                                            data[x]['1d'] ? this.abbreviateNumber(data[x]['1d']['volume']) : 'N/A'
-                                                        }
-                                                    </p>
-                                                </div>
-                                                <i class="add-favorite_btn fas fa-star"></i>
-                                            </div>
-                                        </div>
-                                    `
-                                    this.cards_container.insertAdjacentHTML("beforeend", markup)
-                                    this.setPriceChangeBgColor()
-                               }
-                           }
+                                            `
+                                            this.cards_container.insertAdjacentHTML("beforeend", markup)
+                                            this.setPriceChangeBgColor()
+                                    }
+                                }
+                            }
                         }
                         
                     }else{

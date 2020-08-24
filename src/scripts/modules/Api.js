@@ -12,19 +12,8 @@ class Api{
         new Cards()
         new Favorites()
         setTimeout(this.refresh(), 10000)
-        // this.refresh()
     }
 
-    // callApi(url){
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             // console.log(data[0].symbol)
-    //         })
-    //         .catch(err => {
-    //             console.error(err)
-    //         })
-    // }
 
     refresh(){
         setInterval(() => {
