@@ -71,7 +71,7 @@ class Cards {
         let markup
         this.cards_container.innerHTML = ""
         if (!location.href.includes("favorites.html")) {
-          for (let i = 0; i < 100; i++) {
+          for (let i = 0; i < 80; i++) {
             markup = `
                             <div class="cards__item">
                                 <div class="wrapper">
